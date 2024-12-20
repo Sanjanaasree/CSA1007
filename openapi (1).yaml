@@ -1,0 +1,45 @@
+openapi: 3.0.0
+info:
+  title: Simple Greeting API
+  version: 1.0.0
+  description: A basic API to generate greetings
+servers:
+  - url: /
+paths:
+  /greeting:
+    get:
+      description: Returns a generic greeting message
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Hello, World!"
+    post:
+      description: Returns a personalized greeting message
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: "John"
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Hello, John!"
